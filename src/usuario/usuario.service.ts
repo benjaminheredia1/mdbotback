@@ -1,8 +1,8 @@
 import { Injectable, Body, HttpException } from "@nestjs/common";
-import { CredentialDtoCreate } from '@/../utils/schemas/users.schema';
-import { CredentialsDtoLogin } from '@/../utils/schemas/users.schema';
-import { PrismaService } from "utils/prisma.service";
-import { HashService } from "utils/hash.service";
+import { CredentialDtoCreate } from '../../utils/schemas/users.schema';
+import { CredentialsDtoLogin } from '../../utils/schemas/users.schema';
+import { PrismaService } from "../../utils/prisma.service";
+import { HashService } from "../../utils/hash.service";
 import {JwtService} from '@nestjs/jwt'
 
 @Injectable()

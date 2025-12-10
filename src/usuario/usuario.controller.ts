@@ -1,9 +1,9 @@
 import { Controller, Get, Post, UsePipes, Body} from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
 import { ZodValidationPipe } from 'nestjs-zod';
-import { CredentialsDtoLogin } from '@/../utils/schemas/users.schema';
-import { CredentialDtoCreate } from '@/../utils/schemas/users.schema';
-import { Public } from 'utils/guards/guard.login';
+import { CredentialsDtoLogin } from '../../utils/schemas/users.schema';
+import { CredentialDtoCreate } from '../../utils/schemas/users.schema';
+import { Public } from '../../utils/guards/guard.login';
 
 @Controller('usuario')
 export class UsuarioController {

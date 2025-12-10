@@ -1,6 +1,6 @@
 import { Injectable, HttpException } from '@nestjs/common';
-import { PrismaService } from 'utils/prisma.service';
-import { CreateQuejaDto, UpdateQuejaDto, ResponseQuejaDto } from 'utils/schemas/queja.schema';
+import { PrismaService } from '../../utils/prisma.service';
+import { CreateQuejaDto, UpdateQuejaDto, ResponseQuejaDto } from '../../utils/schemas/queja.schema';
 
 @Injectable()
 export class QuejasService {

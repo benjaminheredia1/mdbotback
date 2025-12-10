@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Delete, Put, Patch } from '@nestjs/common';
 import { QuejasService } from './quejas.service';
-import { CreateQuejaDto, UpdateQuejaDto, ResponseQuejaDto } from 'utils/schemas/queja.schema';
+import { CreateQuejaDto, UpdateQuejaDto, ResponseQuejaDto } from '../../utils/schemas/queja.schema';
 
 @Controller('quejas')
 export class QuejasController {

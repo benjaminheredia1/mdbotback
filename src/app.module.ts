@@ -3,14 +3,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { QuejasModule } from './quejas/quejas.module';
 import { FelicitacionModule } from './felicitacion/felicitacion.module';
-import { SolicitudModule } from '@/solicitud/solicitud.module';
+import { SolicitudModule } from './solicitud/solicitud.module';
 import { APP_PIPE } from '@nestjs/core';
 import { ZodValidationPipe } from 'nestjs-zod';
 import { PrismaModule } from '../utils/prisma.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { PersonaModule } from './persona/persona.module';
 import { JwtModule } from '@nestjs/jwt';
-import { AuthGuard } from 'utils/guards/guard.login';
+import { AuthGuard } from '../utils/guards/guard.login';
 import { APP_GUARD } from '@nestjs/core';
 
 @Module({

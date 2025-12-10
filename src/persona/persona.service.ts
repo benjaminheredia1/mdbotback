@@ -1,6 +1,6 @@
 import { Injectable, HttpException } from '@nestjs/common';
-import { PrismaService } from 'utils/prisma.service';
-import { CreatePersonaDto, UpdatePersonaDto } from 'utils/schemas/persona.schema';
+import { PrismaService } from '../../utils/prisma.service';
+import { CreatePersonaDto, UpdatePersonaDto } from '../../utils/schemas/persona.schema';
 
 @Injectable()
 export class PersonaService {

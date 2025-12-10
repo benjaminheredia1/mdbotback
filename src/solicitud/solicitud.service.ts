@@ -1,6 +1,6 @@
 import { Injectable, HttpException } from '@nestjs/common';
 import { PrismaService } from '../../utils/prisma.service';
-import { SolicitudDtoCreate, SolicitudDtoUpdate, SolicitudDtoResponse } from 'utils/schemas/solicitud.schema';
+import { SolicitudDtoCreate, SolicitudDtoUpdate, SolicitudDtoResponse } from '../../utils/schemas/solicitud.schema';
 
 @Injectable()
 export class SolicitudService {

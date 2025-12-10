@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Put, Delete, Param, Body, Patch } from '@nestjs/common';
 import { SolicitudService } from './solicitud.service';
-import { SolicitudDtoCreate, SolicitudDtoUpdate, SolicitudDtoResponse } from 'utils/schemas/solicitud.schema';
+import { SolicitudDtoCreate, SolicitudDtoUpdate, SolicitudDtoResponse } from '../../utils/schemas/solicitud.schema';
 
 @Controller('solicitud')
 export class SolicitudController {

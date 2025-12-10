@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { PersonaService } from './persona.service';
-import { CreatePersonaDto, UpdatePersonaDto } from 'utils/schemas/persona.schema';
+import { CreatePersonaDto, UpdatePersonaDto } from '../../utils/schemas/persona.schema';
 
 @Controller('persona')
 export class PersonaController {
