@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Put, Delete, Body, Param, Patch } from '@nestjs/common';
 import { FelicitacionService } from './felicitacion.service';
-import { CreateFelicitacionDto, UpdateFelicitacionDto, ResponseFelicitacionDto } from '../../utils/schemas/felicitacion.schema';
+  import { CreateFelicitacionDto, UpdateFelicitacionDto, ResponseFelicitacionDto } from '../../utils/schemas/felicitacion.schema';
 
 @Controller('felicitacion')
 export class FelicitacionController {
