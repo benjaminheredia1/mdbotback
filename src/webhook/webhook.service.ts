@@ -253,7 +253,7 @@ export class WebhookService {
 
   // Obtener todas las quejas con filtros y paginación
   async getAllQuejas(estado?: string, limit: number = 50, offset: number = 0) {
-    const where = estado ? { estado } : {};
+    const where = estado ? { estado: estado as any } : {};
     
     const [quejas, total] = await Promise.all([
       this.prisma.queja.findMany({
@@ -304,7 +304,7 @@ export class WebhookService {
 
   // Obtener todas las solicitudes con filtros y paginación
   async getAllSolicitudes(estado?: string, limit: number = 50, offset: number = 0) {
-    const where = estado ? { estado } : {};
+    const where = estado ? { estado: estado as any } : {};
     
     const [solicitudes, total] = await Promise.all([
       this.prisma.solicitud.findMany({

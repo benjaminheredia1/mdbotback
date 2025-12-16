@@ -150,11 +150,3 @@ export class WebhookController {
     return await this.webhookService.getDashboardSummary();
   }
 }
-  // ===============================
-
-  @Public()
-  @Get('dashboard')
-  async getDashboardSummary() {
-    return await this.webhookService.getDashboardSummary();
-  }
-}
