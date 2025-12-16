@@ -1,10 +1,14 @@
 import { Injectable, HttpException } from '@nestjs/common';
 import { PrismaService } from '../../utils/prisma.service';
 import { CreatePersonaDto, UpdatePersonaDto } from '../../utils/schemas/persona.schema';
+import { EventsGateway } from '../events/events.gateway';
 
 @Injectable()
 export class PersonaService {
-  constructor(private prismaService: PrismaService) {}
+  constructor(
+    private prismaService: PrismaService,
+    private eventsGateway: EventsGateway,
+  ) {}
 
   async findAll() {
     return await this.prismaService.persona.findMany({
@@ -140,5 +144,30 @@ export class PersonaService {
     });
 
     return { message: 'Persona eliminada exitosamente' };
+  }
+
+  // Buscar persona por hcCode (para n8n)
+  async findByHcCode(hcCode: string) {
+    const persona = await this.prismaService.persona.findUnique({
+      where: { hcCode },
+      include: {
+        quejas: {
+          orderBy: { createdAt: 'desc' },
+          take: 20,
+        },
+        felicitaciones: {
+          orderBy: { createdAt: 'desc' },
+          take: 20,
+        },
+        solicitudes: {
+          orderBy: { createdAt: 'desc' },
+          take: 20,
+        },
+      },
+    });
+    if (!persona) {
+      return null;
+    }
+    return persona;
   }
 }

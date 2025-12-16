@@ -12,12 +12,24 @@ import { PersonaModule } from './persona/persona.module';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthGuard } from '../utils/guards/guard.login';
 import { APP_GUARD } from '@nestjs/core';
+import { EventsModule } from './events/events.module';
+import { WebhookModule } from './webhook/webhook.module';
 
 @Module({
-  imports: [PrismaModule, QuejasModule, FelicitacionModule, SolicitudModule, UsuarioModule, PersonaModule, JwtModule.register({
-    secret: process.env.JWT_SECRET_KEY,
-    signOptions: { expiresIn: '1h' },
-  })],
+  imports: [
+    PrismaModule, 
+    QuejasModule, 
+    FelicitacionModule, 
+    SolicitudModule, 
+    UsuarioModule, 
+    PersonaModule, 
+    EventsModule,
+    WebhookModule,
+    JwtModule.register({
+      secret: process.env.JWT_SECRET_KEY,
+      signOptions: { expiresIn: '1h' },
+    })
+  ],
   controllers: [AppController],
   providers: [
     AppService,

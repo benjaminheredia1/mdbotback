@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { PersonaService } from './persona.service';
 import { CreatePersonaDto, UpdatePersonaDto } from '../../utils/schemas/persona.schema';
+import { Public } from '../../utils/guards/guard.login';
 
 @Controller('persona')
 export class PersonaController {
@@ -14,6 +15,17 @@ export class PersonaController {
   @Get(':id')
   async findOne(@Param('id') id: string) {
     return await this.personaService.findOne(Number(id));
+  }
+
+  // Endpoint para buscar por hcCode (para n8n)
+  @Public()
+  @Get('hccode/:hcCode')
+  async findByHcCode(@Param('hcCode') hcCode: string) {
+    const persona = await this.personaService.findByHcCode(hcCode);
+    if (!persona) {
+      return { success: false, message: 'Persona no encontrada' };
+    }
+    return { success: true, data: persona };
   }
 
   @Post()
