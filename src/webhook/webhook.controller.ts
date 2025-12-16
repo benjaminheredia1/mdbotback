@@ -48,6 +48,87 @@ export class WebhookController {
   }
 
   // ===============================
+  // ENDPOINTS REST PARA FRONTEND
+  // ===============================
+
+  // Listar todas las quejas con filtros opcionales
+  @Public()
+  @Get('quejas')
+  async getAllQuejas(
+    @Query('estado') estado?: string,
+    @Query('limit') limit?: string,
+    @Query('offset') offset?: string,
+  ) {
+    return await this.webhookService.getAllQuejas(
+      estado,
+      limit ? Number(limit) : 50,
+      offset ? Number(offset) : 0,
+    );
+  }
+
+  // Listar todas las felicitaciones con filtros opcionales
+  @Public()
+  @Get('felicitaciones')
+  async getAllFelicitaciones(
+    @Query('limit') limit?: string,
+    @Query('offset') offset?: string,
+  ) {
+    return await this.webhookService.getAllFelicitaciones(
+      limit ? Number(limit) : 50,
+      offset ? Number(offset) : 0,
+    );
+  }
+
+  // Listar todas las solicitudes con filtros opcionales
+  @Public()
+  @Get('solicitudes')
+  async getAllSolicitudes(
+    @Query('estado') estado?: string,
+    @Query('limit') limit?: string,
+    @Query('offset') offset?: string,
+  ) {
+    return await this.webhookService.getAllSolicitudes(
+      estado,
+      limit ? Number(limit) : 50,
+      offset ? Number(offset) : 0,
+    );
+  }
+
+  // Listar todas las personas
+  @Public()
+  @Get('personas')
+  async getAllPersonas(
+    @Query('limit') limit?: string,
+    @Query('offset') offset?: string,
+  ) {
+    return await this.webhookService.getAllPersonas(
+      limit ? Number(limit) : 50,
+      offset ? Number(offset) : 0,
+    );
+  }
+
+  // Obtener queja por ID
+  @Public()
+  @Get('quejas/:id')
+  async getQuejaById(@Param('id') id: string) {
+    return await this.webhookService.getQuejaById(Number(id));
+  }
+
+  // Obtener felicitación por ID
+  @Public()
+  @Get('felicitaciones/:id')
+  async getFelicitacionById(@Param('id') id: string) {
+    return await this.webhookService.getFelicitacionById(Number(id));
+  }
+
+  // Obtener solicitud por ID
+  @Public()
+  @Get('solicitudes/:id')
+  async getSolicitudById(@Param('id') id: string) {
+    return await this.webhookService.getSolicitudById(Number(id));
+  }
+
+  // ===============================
   // ENDPOINTS PARA N8N (Consultar datos)
   // ===============================
 

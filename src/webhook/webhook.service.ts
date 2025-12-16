@@ -246,4 +246,151 @@ export class WebhookService {
       },
     };
   }
+
+  // ===============================
+  // ENDPOINTS REST PARA FRONTEND
+  // ===============================
+
+  // Obtener todas las quejas con filtros y paginación
+  async getAllQuejas(estado?: string, limit: number = 50, offset: number = 0) {
+    const where = estado ? { estado } : {};
+    
+    const [quejas, total] = await Promise.all([
+      this.prisma.queja.findMany({
+        where,
+        include: { persona: true },
+        orderBy: { createdAt: 'desc' },
+        take: limit,
+        skip: offset,
+      }),
+      this.prisma.queja.count({ where }),
+    ]);
+
+    return {
+      success: true,
+      data: quejas,
+      pagination: {
+        total,
+        limit,
+        offset,
+        hasMore: offset + quejas.length < total,
+      },
+    };
+  }
+
+  // Obtener todas las felicitaciones con paginación
+  async getAllFelicitaciones(limit: number = 50, offset: number = 0) {
+    const [felicitaciones, total] = await Promise.all([
+      this.prisma.felicitacion.findMany({
+        include: { persona: true },
+        orderBy: { createdAt: 'desc' },
+        take: limit,
+        skip: offset,
+      }),
+      this.prisma.felicitacion.count(),
+    ]);
+
+    return {
+      success: true,
+      data: felicitaciones,
+      pagination: {
+        total,
+        limit,
+        offset,
+        hasMore: offset + felicitaciones.length < total,
+      },
+    };
+  }
+
+  // Obtener todas las solicitudes con filtros y paginación
+  async getAllSolicitudes(estado?: string, limit: number = 50, offset: number = 0) {
+    const where = estado ? { estado } : {};
+    
+    const [solicitudes, total] = await Promise.all([
+      this.prisma.solicitud.findMany({
+        where,
+        include: { persona: true },
+        orderBy: { createdAt: 'desc' },
+        take: limit,
+        skip: offset,
+      }),
+      this.prisma.solicitud.count({ where }),
+    ]);
+
+    return {
+      success: true,
+      data: solicitudes,
+      pagination: {
+        total,
+        limit,
+        offset,
+        hasMore: offset + solicitudes.length < total,
+      },
+    };
+  }
+
+  // Obtener todas las personas con paginación
+  async getAllPersonas(limit: number = 50, offset: number = 0) {
+    const [personas, total] = await Promise.all([
+      this.prisma.persona.findMany({
+        orderBy: { createdAt: 'desc' },
+        take: limit,
+        skip: offset,
+      }),
+      this.prisma.persona.count(),
+    ]);
+
+    return {
+      success: true,
+      data: personas,
+      pagination: {
+        total,
+        limit,
+        offset,
+        hasMore: offset + personas.length < total,
+      },
+    };
+  }
+
+  // Obtener queja por ID
+  async getQuejaById(id: number) {
+    const queja = await this.prisma.queja.findUnique({
+      where: { id },
+      include: { persona: true },
+    });
+
+    if (!queja) {
+      return { success: false, message: 'Queja no encontrada' };
+    }
+
+    return { success: true, data: queja };
+  }
+
+  // Obtener felicitación por ID
+  async getFelicitacionById(id: number) {
+    const felicitacion = await this.prisma.felicitacion.findUnique({
+      where: { id },
+      include: { persona: true },
+    });
+
+    if (!felicitacion) {
+      return { success: false, message: 'Felicitación no encontrada' };
+    }
+
+    return { success: true, data: felicitacion };
+  }
+
+  // Obtener solicitud por ID
+  async getSolicitudById(id: number) {
+    const solicitud = await this.prisma.solicitud.findUnique({
+      where: { id },
+      include: { persona: true },
+    });
+
+    if (!solicitud) {
+      return { success: false, message: 'Solicitud no encontrada' };
+    }
+
+    return { success: true, data: solicitud };
+  }
 }
