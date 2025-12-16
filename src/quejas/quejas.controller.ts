@@ -1,7 +1,9 @@
 import { Controller, Get, Post, Body, Param, Delete, Put, Patch } from '@nestjs/common';
 import { QuejasService } from './quejas.service';
 import { CreateQuejaDto, UpdateQuejaDto, ResponseQuejaDto } from '../../utils/schemas/queja.schema';
+import { Public } from '../../utils/guards/guard.login';
 
+@Public()
 @Controller('quejas')
 export class QuejasController {
   constructor(private readonly quejasService: QuejasService) {}

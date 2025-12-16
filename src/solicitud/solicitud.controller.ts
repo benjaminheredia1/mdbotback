@@ -1,7 +1,9 @@
 import { Controller, Get, Post, Put, Delete, Param, Body, Patch } from '@nestjs/common';
 import { SolicitudService } from './solicitud.service';
 import { SolicitudDtoCreate, SolicitudDtoUpdate, SolicitudDtoResponse } from '../../utils/schemas/solicitud.schema';
+import { Public } from '../../utils/guards/guard.login';
 
+@Public()
 @Controller('solicitud')
 export class SolicitudController {
   constructor(private solicitudService: SolicitudService) {}
