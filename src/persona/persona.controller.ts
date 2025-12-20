@@ -44,7 +44,7 @@ export class PersonaController {
   }
   @Get('hcode') 
   @Public()
-  async getHcodes() { 
-    return await this.personaService.getHcodes();
+  async getHcodes(@Body() body: { hcCode: string }) { 
+    return await this.personaService.getHcodes(body.hcCode);
   }
 }
