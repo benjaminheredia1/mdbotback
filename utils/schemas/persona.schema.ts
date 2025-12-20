@@ -8,7 +8,7 @@ export const personaSchemaCreate = z.object({
   business: z.string().optional(),
   status: z.string().optional(),
   area: z.string().optional(),
-  id_usuario: z.number().int().positive().optional(),
+  id_usuario: z.number().int().positive().optional().nullable(),
 });
 
 export const personaSchemaUpdate = z.object({
