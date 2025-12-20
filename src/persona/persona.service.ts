@@ -65,13 +65,13 @@ export class PersonaService {
 
     return await this.prismaService.persona.create({
       data: {
-        nombre: data.nombre,
+        nombre: data.nombre ,
         hcCode: data.hcCode,
-        insurance: data.insurance,
-        business: data.business,
-        status: data.status,
-        area: data.area,
-        id_usuario: data.id_usuario,
+        insurance: data.insurance || null,
+        business: data.business || null,
+        status: data.status || null,
+        area: data.area || null,
+        id_usuario: data.id_usuario || null,
       },
     });
   }
