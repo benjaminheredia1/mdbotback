@@ -42,8 +42,8 @@ export class PersonaController {
   async delete(@Param('id') id: string) {
     return await this.personaService.delete(Number(id));
   }
-  @Get('hcode') 
   @Public()
+  @Get('hcode') 
   async getHcodes(@Body() body: { hcCode: string }) { 
     return await this.personaService.getHcodes(body.hcCode);
   }
