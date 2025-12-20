@@ -42,4 +42,9 @@ export class PersonaController {
   async delete(@Param('id') id: string) {
     return await this.personaService.delete(Number(id));
   }
+  @Get('hcode') 
+  @Public()
+  async getHcodes() { 
+    return await this.personaService.getHcodes();
+  }
 }

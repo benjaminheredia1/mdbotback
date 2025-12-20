@@ -170,4 +170,15 @@ export class PersonaService {
     }
     return persona;
   }
+  async getHcodes(hcCode: string) {
+    return await this.prismaService.persona.findFirst({
+      where: { hcCode: {
+        contains: hcCode
+      } },
+      select: {
+        hcCode: true,
+        id: true,
+      },
+    });
+  }
 }
