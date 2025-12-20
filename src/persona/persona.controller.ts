@@ -43,9 +43,8 @@ export class PersonaController {
     return await this.personaService.delete(Number(id));
   }
   @Public()
-  @Get('hcode/search') 
-  async getHcodes(@Body() body: { hcCode: string }) { 
-    console.log('Received hcCode:', body.hcCode);
-    return await this.personaService.getHcodes(body.hcCode);
+  @Get('name/search') 
+  async getHcodes(@Body() body: { name: string }) { 
+    return await this.personaService.getName(body.name);
   }
 }

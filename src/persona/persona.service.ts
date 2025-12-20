@@ -170,10 +170,10 @@ export class PersonaService {
     }
     return persona;
   }
-  async getHcodes(hcCode: string) {
+  async getName(name: string) {
     return await this.prismaService.persona.findFirst({
       where: { hcCode: {
-        contains: hcCode
+        contains: name
       } },
       select: {
         hcCode: true,
