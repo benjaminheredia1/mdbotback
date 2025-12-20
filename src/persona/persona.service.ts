@@ -176,6 +176,7 @@ export class PersonaService {
         contains: name
       } },
       select: {
+        nombre: true,
         hcCode: true,
         id: true,
       },
