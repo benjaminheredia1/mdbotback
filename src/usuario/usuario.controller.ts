@@ -8,17 +8,18 @@ import { Public } from '../../utils/guards/guard.login';
 @Controller('usuario')
 export class UsuarioController {
     constructor(private readonly usuarioService: UsuarioService) { }
+    @Public()
     @Get('findAll')
     fndAll() {
         return this.usuarioService.findAll();
     }
-    @Post('login')
     @Public()
+    @Post('login')
     login(@Body() credentials: CredentialsDtoLogin) {
         return this.usuarioService.login(credentials);
     }
-    @Post('create')
     @Public()
+    @Post('create')
     create(@Body() credentials: CredentialDtoCreate) {
         return this.usuarioService.create(credentials);
     }
