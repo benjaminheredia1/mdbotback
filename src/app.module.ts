@@ -14,6 +14,7 @@ import { AuthGuard } from '../utils/guards/guard.login';
 import { APP_GUARD } from '@nestjs/core';
 import { EventsModule } from './events/events.module';
 import { WebhookModule } from './webhook/webhook.module';
+import { FinalizadoModule } from './finalizado/finalizado.module';
 
 @Module({
   imports: [
@@ -22,7 +23,8 @@ import { WebhookModule } from './webhook/webhook.module';
     FelicitacionModule, 
     SolicitudModule, 
     UsuarioModule, 
-    PersonaModule, 
+    PersonaModule,
+    FinalizadoModule,
     EventsModule,
     WebhookModule,
     JwtModule.register({
