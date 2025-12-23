@@ -11,7 +11,7 @@ export class FinalizadoController {
         return await this.finalizandoService.felicitaciones(solicitud);
     }
     @Public()
-    @Put('quejas')
+    @Put('queja')
     async quejaFinalizada(@Body() solicitud: FinalizandoDto) {
         return await this.finalizandoService.quejas(solicitud);
     }
