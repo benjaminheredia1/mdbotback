@@ -1,4 +1,4 @@
-import {Controller, Post, Body} from '@nestjs/common';
+import {Controller, Post, Body, Put} from '@nestjs/common';
 import { Public } from '../../utils/guards/guard.login';
 import { FinalizandoService } from './finalizado.service';
 import { FinalizandoDto } from '../../utils/schemas/finalizando';
@@ -6,17 +6,17 @@ import { FinalizandoDto } from '../../utils/schemas/finalizando';
 export class FinalizadoController {
     constructor(private readonly finalizandoService: FinalizandoService) {}
     @Public()
-    @Post('felicitacion')
+    @Put('felicitacion')
     async felicitacionFinalizada(@Body() solicitud: FinalizandoDto) {
         return await this.finalizandoService.felicitaciones(solicitud);
     }
     @Public()
-    @Post('quejas')
+    @Put('quejas')
     async quejaFinalizada(@Body() solicitud: FinalizandoDto) {
         return await this.finalizandoService.quejas(solicitud);
     }
     @Public()
-    @Post('solicitud')
+    @Put('solicitud')
     async solicitudFinalizada(@Body() solicitud: FinalizandoDto) {
         return await this.finalizandoService.solicitudes(solicitud);
     }
