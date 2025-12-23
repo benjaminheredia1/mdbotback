@@ -14,7 +14,7 @@ export class FinalizandoService {
         const updateQuejas = await this.prisma.queja.update({
             where: { id: finalizandoDto.id },
             data: {
-                descripcion: finalizandoDto.descripcion
+                respuesta: finalizandoDto.descripcion
             }
         })
         return updateQuejas;
@@ -29,7 +29,7 @@ export class FinalizandoService {
         const updateFelicitaciones = await this.prisma.felicitacion.update({
             where: { id: finalizandoDto.id },
             data: {
-                descripcion: finalizandoDto.descripcion
+                Respuesta: finalizandoDto.descripcion
             }
         })
         return updateFelicitaciones;
@@ -44,7 +44,7 @@ export class FinalizandoService {
         const updateSolicitudes = await this.prisma.solicitud.update({
             where: { id: finalizandoDto.id },
             data: {
-                descripcion: finalizandoDto.descripcion
+                Respuesta: finalizandoDto.descripcion
             }
         })
         return updateSolicitudes;
