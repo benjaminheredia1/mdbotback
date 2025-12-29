@@ -15,6 +15,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { EventsModule } from './events/events.module';
 import { WebhookModule } from './webhook/webhook.module';
 import { FinalizadoModule } from './finalizado/finalizado.module';
+import {FormularioModule} from './formulario/formulario.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { FinalizadoModule } from './finalizado/finalizado.module';
     PersonaModule,
     FinalizadoModule,
     EventsModule,
+    FormularioModule,
     WebhookModule,
     JwtModule.register({
       secret: process.env.JWT_SECRET_KEY,

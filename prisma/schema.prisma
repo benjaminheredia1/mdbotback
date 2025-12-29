@@ -37,6 +37,7 @@ model Persona {
   felicitaciones Felicitacion []
   solicitudes Solicitud[]
   id_usuario Int?
+  formularios Formulario[]
   usuario Usuario? @relation(fields: [id_usuario], references: [id])
 }
 
@@ -67,6 +68,14 @@ model Solicitud {
   createdAt DateTime @default(now())
   estado Estado @default(PENDIENTE)
   Respuesta String?
+  id_persona Int
+  persona Persona @relation(fields: [id_persona], references: [id])
+}
+model Formulario {
+  id Int @id @default(autoincrement())
+  tipo String
+  Calificacion String?
+  createdAt DateTime @default(now())
   id_persona Int
   persona Persona @relation(fields: [id_persona], references: [id])
 }
