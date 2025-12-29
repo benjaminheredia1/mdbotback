@@ -19,7 +19,7 @@ export class FormularioService {
             throw new Error('Formulario not found or already rated');
         }
         return await this.prisma.formulario.update({
-            where: { id},
+            where: { id: formulario.id },
             data: {
                 Calificacion: data.Calificacion
             }
