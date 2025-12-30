@@ -1,4 +1,4 @@
-import { Controller, Post, Put, Body } from '@nestjs/common';
+import { Controller, Post, Put, Body, Get } from '@nestjs/common';
 import { FormularioService } from './formulario.service';
 import { createFomrularioDto, updateFormularioDto } from '../../utils/schemas/formulario.schema';
 import { Public } from 'utils/guards/guard.login';
@@ -16,5 +16,10 @@ export class FormularioController {
     @Put("update")
     async updateFormulario(@Body() data: updateFormularioDto) {
         return this.formularioService.updateFormulario(data);
+    }
+    @Public()
+    @Get("get")
+    async getFormulario() {
+        return this.formularioService.getFormulario();
     }
 }

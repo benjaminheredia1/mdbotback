@@ -25,4 +25,9 @@ export class FormularioService {
             }
         });
     }
+    async getFormulario() {
+        return await this.prisma.formulario.findMany(
+            { include: { persona: true } }
+        );
+    }
 }
