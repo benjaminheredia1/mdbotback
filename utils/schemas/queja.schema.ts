@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createZodDto } from 'nestjs-zod';
 
 export const quejaSchemaCreate = z.object({
-  descripcion: z.string().min(10).max(500),
+  descripcion: z.string().min(10),
   id_persona: z.number().int().positive(),
   area_medica: z.string()
 });
