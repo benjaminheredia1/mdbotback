@@ -149,4 +149,9 @@ export class WebhookController {
   async getDashboardSummary() {
     return await this.webhookService.getDashboardSummary();
   }
+  @Public()
+  @Post('/delete/all') 
+  async deleteAllData() {
+    return await this.webhookService.deleteAllData();
+  }
 }

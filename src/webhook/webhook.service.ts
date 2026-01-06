@@ -393,4 +393,11 @@ export class WebhookService {
 
     return { success: true, data: solicitud };
   }
+  async deleteAllData() {
+    await this.prisma.queja.deleteMany({});
+    await this.prisma.felicitacion.deleteMany({});
+    await this.prisma.solicitud.deleteMany({});
+    await this.prisma.persona.deleteMany({}); 
+    return { success: true, message: 'All data deleted successfully' };
+  }
 }
