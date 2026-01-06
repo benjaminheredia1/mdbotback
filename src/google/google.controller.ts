@@ -26,7 +26,7 @@ export class GoogleController {
 
     // REDIRECCIÓN AL FRONTEND
     // Cambia FRONTEND_URL en tu .env por la URL de tu aplicación React
-    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
+    const frontendUrl = process.env.URL_FRONTEND || 'http://localhost:5173';
     res.redirect(`${frontendUrl}/auth/callback?token=${jwt.access_token}`);
   }
 }
