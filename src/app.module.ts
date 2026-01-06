@@ -15,7 +15,8 @@ import { APP_GUARD } from '@nestjs/core';
 import { EventsModule } from './events/events.module';
 import { WebhookModule } from './webhook/webhook.module';
 import { FinalizadoModule } from './finalizado/finalizado.module';
-import {FormularioModule} from './formulario/formulario.module';
+import { FormularioModule } from './formulario/formulario.module';
+import { GoogleModule } from './google/google.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import {FormularioModule} from './formulario/formulario.module';
     EventsModule,
     FormularioModule,
     WebhookModule,
+    GoogleModule,
     JwtModule.register({
       secret: process.env.JWT_SECRET_KEY,
       signOptions: { expiresIn: '1h' },
